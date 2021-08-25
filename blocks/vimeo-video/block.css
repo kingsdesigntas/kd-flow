@@ -1,0 +1,10 @@
+.vimeo-block {
+    background: var(--gray-100);
+    display: block;
+}
+
+.vimeo-block > iframe {
+    width: 100%;
+    border: none;
+    transform: scale(1.05);
+}

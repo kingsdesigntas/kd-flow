@@ -1,0 +1,15 @@
+.quote-block {
+    max-width: var(--width-small);
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--secondary-400);
+    border-bottom: 1px solid var(--secondary-400);
+}
+
+.quote-block blockquote p::before,
+.quote-block blockquote p::after {
+        content: '"';
+        font-weight: bold;
+        font-size: 1.5rem;
+        line-height: 1;
+}

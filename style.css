@@ -1,0 +1,753 @@
+/* 
+*  CSS TABLE OF CONTENTS
+*   
+*  1.0 - Reset
+*  2.0 - Fonts
+*  3.0 - Custom Properties
+*  4.0 - General Typography
+*  5.0 - Areas
+*    5.1 - Header
+*    5.2 - Entry Content
+* 6.0 - Utilities
+*  7.0 - Buttons
+*  8.0 - Gutenberg Conditionals
+*/
+
+/* ------------------------------------------------- 
+1.0 Reset
+------------------------------------------------- */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Add default focus style */
+*:focus {
+    outline: 2px solid var(--primary-200);
+}
+
+/* Remove default padding */
+ul,
+ol {
+    padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* style child lists */
+ul>li>ul>*+* {
+    margin-top: 1.5rem;
+}
+
+ul>li>ul {
+    padding-left: 2.5rem;
+    margin-top: 1.5rem;
+    border-left: 1px solid var(--primary-500);
+}
+
+/* Make images easier to work with */
+img {
+    width: 100%;
+    height: auto;
+    background: var(--gray-100);
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    padding: 0;
+    cursor: pointer;
+    border: none;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ------------------------------------------------- 
+End Reset 
+------------------------------------------------- */
+
+/* ------------------------------------------------- 
+2.0 Font Imports 
+------------------------------------------------- */
+@font-face {
+    font-family: 'GeneralSans';
+    src: local('GeneralSans Light'), local('GeneralSans-Light'),
+        url('./fonts/GeneralSans-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GeneralSans';
+    src: local('GeneralSans Bold'), local('GeneralSans-Bold'),
+        url('./fonts/GeneralSans-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GeneralSans';
+    src: local('GeneralSans Medium'), local('GeneralSans-Medium'),
+        url('./fonts/GeneralSans-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GeneralSans';
+    src: local('GeneralSans Regular'), local('GeneralSans-Regular'),
+        url('./fonts/GeneralSans-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GeneralSans';
+    src: local('GeneralSans SemiBold'), local('GeneralSans-SemiBold'),
+        url('./fonts/GeneralSans-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+/* ------------------------------------------------- 
+End Font Imports 
+------------------------------------------------- */
+
+
+/* ------------------------------------------------- 
+3.0 Custom Properties
+------------------------------------------------- */
+:root {
+    --heading-font: 'GeneralSans', sans-serif;
+    --body-font: 'GeneralSans', sans-serif;
+    --gray-50: #f5f5f5;
+    --gray-100: #ddd;
+    --gray-200: #bebebe;
+    --gray-300: #9d9d9d;
+    --gray-400: #858585;
+    --gray-500: #6a6a6a;
+    --gray-600: #525252;
+    --gray-700: #383838;
+    --gray-800: #1e1e1e;
+    --gray-900: #141414;
+    --primary-50: #F1F8FE;
+    --primary-100: #BDD7EF;
+    --primary-200: #96C1E9;
+    --primary-300: #66A5E1;
+    --primary-400: #388CDC;
+    --primary-500: #2273BF;
+    --primary-600: #0D59A1;
+    --primary-700: #093F71;
+    --primary-800: #062A4C;
+    --primary-900: #031526;
+    --content-width: 90vw;
+    --width-small: 36rem;
+    --width-medium: 48rem;
+    --width-large: 60rem;
+    --width-xlarge: 80rem;
+    --width-full: 100vw;
+    --secondary-50: #F1FBFE;
+    --secondary-100: #BDE6EF;
+    --secondary-200: #96D9E9;
+    --secondary-300: #66CAE1;
+    --secondary-400: #38BEDC;
+    --secondary-500: #22A2BF;
+    --secondary-600: #0D86A1;
+    --secondary-700: #095E71;
+    --secondary-800: #063F4C;
+    --secondary-900: #031F26;
+    --spacing: 1rem;
+    font-family: var(--body-font);
+}
+/* ------------------------------------------------- 
+End Custom Properties
+------------------------------------------------- */
+
+/* ------------------------------------------------- 
+4.0 General Typography
+------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+}
+
+h1, .font-xxl {
+    font-size: clamp(2.25rem, 1.6vw + 1.75rem, 3rem);
+}
+
+h2, .font-xl {
+    font-size: clamp(1.75rem, 1.3vw + 1.3rem, 2.5rem);
+}
+
+h3, .font-lg {
+    font-size: clamp(1.4rem, 1.2vw + 1rem, 2rem);
+}
+
+h4, .font-md {
+    font-size: clamp(1rem, 1.1vw + 1rem, 1.5rem);
+}
+
+p {
+    line-height: 1.9;
+}
+/* ------------------------------------------------- 
+End General Typography
+------------------------------------------------- */
+
+/* ------------------------------------------------- 
+5.0 Areas
+------------------------------------------------- */
+/* --------
+5.1 Header
+-------- */
+.theme-header, .theme-footer {
+    background: var(--primary-800);
+    color: white;
+    display: grid;
+    justify-content: center;
+}
+
+.header-content, .footer-content {
+width: var(--content-width);
+padding: 1.5rem 0;
+}
+
+.header-content {
+    max-width: var(--width-xlarge);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.brand:hover, .brand:active {
+    color: var(--primary-200);
+}
+
+.brand > span {
+    margin-left: 0.2rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.35em;
+}
+
+.curtain-menu-button {
+    display: flex;
+    padding: 0.25rem;
+}
+
+#curtain-menu {
+    visibility: hidden;
+    position: fixed;
+    z-index: 10001;
+    background: var(--primary-800);
+    color: white;
+    height: 100vh;
+    width: 0;
+    transition: visibility,
+    width 0.3s ease-out;
+    overflow-y: scroll;
+}
+
+.curtain-button-placer {
+    max-width: var(--width-xlarge);
+    width: var(--content-width);
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
+    z-index: 10002;
+    top: 1.6em;
+    right:0.45rem;
+}
+
+#close-curtain-button {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+#curtain-menu-container {
+    opacity: 0;
+    width: var(--content-width);
+    max-width: var(--width-medium);
+    margin: auto;
+    padding: 3rem 0;
+    transition: opacity 0.3s ease;
+}
+
+#curtain-menu-container ul {
+    font-size: 1.25rem;
+}
+
+#curtain-menu-container ul > *+* {
+    margin-top: 0.6rem;
+}
+
+.menu-item {
+    list-style: none;
+    position: relative;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-item>a:hover,a:active {
+    text-decoration: underline 1px solid var(--primary-200);
+}
+
+#curtain-menu-container .sub-menu {
+    margin-left: 1rem;
+    margin-top: 0.6rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--secondary-300);
+}
+
+.navigation-items {
+    display: flex;
+    align-items: center;
+}
+
+.desktop-nav {
+    margin-right: 1rem;
+    display: none;
+}
+
+.desktop-nav>div>ul {
+    display: flex;
+    align-items: center;
+}
+
+.desktop-nav>div>ul>*+* {
+    margin-left: 1.5rem;
+}
+
+.desktop-nav .menu-item a {
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    font-size: clamp(0.875rem, 1.5vw, 1.05rem);
+}
+
+.desktop-nav .sub-menu {
+    display: none;
+    position: absolute;
+    z-index: 11;
+    background: var(--primary-800);
+    margin-top: 0;
+    padding: 1.25rem;
+    min-width: 18rem;
+    border-left: 6px solid var(--primary-200);
+}
+
+.desktop-nav .sub-menu a {
+    color: white;
+}
+
+.desktop-nav .menu-item-has-children:hover>.sub-menu,
+.desktop-nav .menu-item-has-children:focus-within>.sub-menu {
+    display: block;
+}
+
+@media screen and (min-width: 48rem) {
+    .desktop-nav {
+        display: block;
+    }
+    #open-curtain-button {
+        display: none;
+    }
+
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.header-buttons>*+* {
+    margin-left: 1rem;
+}
+
+.desktop-nav .menu-item-has-children {
+    margin-right: 1rem;
+}
+
+.desktop-nav .menu-item-has-children::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 0.35rem solid transparent;
+    border-right: 0.35rem solid transparent;
+    border-top: 0.5rem solid var(--secondary-200);
+    background-image: url(/wp-content/uploads/2021/08/chevron-down.svg);
+    margin-left: .25rem;
+    position: absolute;
+    top: 0.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.2s;
+}
+
+.desktop-nav .menu-item-has-children:hover::after,
+.desktop-nav .menu-item-has-children:active::after,
+.desktop-nav .menu-item-has-children:focus-within::after {
+    transform: rotate(180deg);
+}
+
+/* --------
+End Header
+-------- */
+/* --------
+5.2 Entry Content
+-------- */
+.entry-content {
+    padding: 4rem 0 6rem;
+}
+
+.entry-content>* {
+    max-width: var(--width-medium);
+    width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entry-content>ul {
+    width: 80%;
+}
+
+.entry-content>ul>*+* {
+    margin-top: var(--flow, 1.25rem);
+}
+
+p > a {
+    color: var(--primary-700);
+    transition: color 0.3s;
+}
+
+p > a:hover,
+p > a:focus {
+    color: var(--primary-500);
+}
+/* --------
+End Entry Content
+-------- */
+/* --------
+5.3 Footer
+-------- */
+.theme-footer {
+    background: var(--primary-800);
+    color: white;
+}
+
+.footer-content {
+    display: grid;
+    padding: 6rem 0;
+    margin: auto;
+    max-width: var(--width-xlarge);
+    gap: 2rem;
+}
+
+.footer-content>.flow ul>*+* {
+    margin-top: 0.75rem;
+}
+
+.footer-content a {
+    color: white;
+}
+
+@media screen and (min-width: 36rem) {
+    .footer-content {
+        grid-template-columns: 1.75fr 1fr;
+    }
+
+}
+
+@media screen and (min-width: 60rem) {
+    .footer-content {
+        grid-template-columns: 1.4fr 1fr 1.4fr 1fr;
+        gap: 3rem;
+    }
+
+}
+
+footer {
+    font-size: 0.875rem;
+}
+
+/* --------
+Emd Footer
+-------- */
+/* ------------------------------------------------- 
+End Areas
+------------------------------------------------- */
+/* ------------------------------------------------- 
+6.0 Utilities
+------------------------------------------------- */
+.flow>*+* {
+    margin-top: var(--flow, 2rem);
+}
+
+.flow-space-sm {
+    margin-top: (var(--spacing));
+    margin-bottom: (var(--spacing));
+}
+
+.flow-space-lg {
+    margin-top: calc(var(--spacing) * 4);
+    margin-bottom: calc(var(--spacing) * 4);
+}
+
+.flow-space-xl {
+    margin-top: calc(var(--spacing) * 6);
+    margin-bottom: calc(var(--spacing) * 6);
+}
+
+.flow-space-none {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.flow-top-sm {
+    margin-top: (var(--spacing));
+}
+
+.flow-top-lg {
+    margin-top: calc(var(--spacing) * 4);
+}
+
+.flow-top-xl {
+    margin-top: calc(var(--spacing) * 6);
+}
+
+.flow-top-none {
+    margin-top: (var(--spacing));
+}
+
+.flow-bottom-sm {
+    margin-bottom: (var(--spacing));
+}
+
+.flow-bottom-lg {
+    margin-bottom: calc(var(--spacing) * 4);
+}
+
+.flow-bottom-xl {
+    margin-bottom: calc(var(--spacing) * 6);
+}
+
+.flow-bottom-none {
+    margin-bottom: (var(--spacing));
+}
+
+
+.alignsmall {
+    max-width: var(--width-small);
+    width: var(--content-width);
+}
+
+.alignmedium {
+    max-width: var(--width-medium);
+    width: var(--content-width);
+}
+
+.alignlarge {
+    max-width: var(--width-large);
+    width: var(--content-width);
+}
+
+.alignwide {
+    max-width: var(--width-xlarge);
+    width: var(--content-width);
+}
+
+.alignfull {
+    max-width: var(--width-full);
+    width: 100%;
+}
+
+.has-text-align-center {
+    text-align: center;
+}
+
+.has-text-align-right {
+    text-align: right;
+}
+
+.afterline::after {
+    content: "";
+    display: block;
+    margin: 1rem auto 0;
+    width: 12.5rem;
+    height: 0.25rem;
+    background: var(--secondary-400);
+}
+
+/* ------------------------------------------------- 
+End Utilities
+------------------------------------------------- */
+
+/* ------------------------------------------------- 
+7.0 Buttons
+------------------------------------------------- */
+.btn {
+    --scheme: var(--primary-600);
+    --text: white;
+    display: inline-flex;
+    padding: 1rem;
+    background: var(--scheme);
+    color: var(--text);
+    width: max-content;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn:active,
+.btn:hover,
+.btn:focus {
+    --scheme: var(--primary-500);
+    --text: white;
+}
+
+.secondary {
+    --scheme: var(--secondary-600);
+    --text: white;
+}
+
+.secondary:active,
+.secondary:hover,
+.secondary:focus {
+    --scheme: var(--secondary-500);
+    --text: white;
+}
+
+.btn-outline {
+    --scheme: var(--gray-900);
+    --text: var(--gray-900);
+    display: inline-flex;
+    padding: calc(1rem - 2px);
+    background: none;
+    color: var(--text);
+    border: 2px solid var(--scheme);
+    width: max-content;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background, color, border 0.3s;
+}
+
+.btn-outline:active,
+.btn-outline:hover,
+.btn-outline:focus {
+    --scheme: var(--primary-500);
+    --text: var(--primary-500);
+}
+
+.btn-outline.invert {
+    --scheme: white;
+    --text: white;
+}
+
+.btn-outline.invert:active,
+.btn-outline.invert:hover,
+.btn-outline.invert:focus {
+    --scheme: var(--gray-500);
+    --text: var(--gray-500);
+}
+
+.btn-outline.secondary:active,
+.btn-outline.secondary:hover,
+.btn-outline.secondary:focus {
+    --scheme: var(--secondary-500);
+    --text: var(--secondary-500);
+}
+
+.curtain-menu-button {
+    padding: 0.25rem;
+}
+
+/* .curtain-menu-button:active,
+.curtain-menu-button:hover,
+.curtain-menu-button:focus {
+    background: var(--primary-600);
+} */
+
+#close-curtain-button {
+    color: var(--primary-800);
+    background: white;
+}
+
+#close-curtain-button:active,
+#close-curtain-button:hover,
+#close-curtain-button:focus {
+    background: var(--secondary-50);
+}
+
+/* ------------------------------------------------- 
+End Buttons
+------------------------------------------------- */
+
+/* ------------------------------------------------- 
+8.0 Gutenberg Conditionals
+------------------------------------------------- */
+.wp-block-separator {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+/* Top of Page Blocks */
+.first-block-negative-margin:first-child {
+    margin-top: -4rem;
+}
+
+/* ------------------------------------------------- 
+End Gutenberg Conditionals
+------------------------------------------------- */
