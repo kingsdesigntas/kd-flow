@@ -156,7 +156,7 @@ Managing Content Flow
     [data-title="Home Banner"]:first-child,
     [data-title="Inner Content Section"]:first-child {
         margin-top: -4rem;
-    }
+    }p
 
     /* --------
 End Managing Content Flow
