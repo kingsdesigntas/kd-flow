@@ -1,0 +1,20 @@
+.simple-banner-block {
+    display: grid;
+    grid-template: 'banner';
+    place-items: center;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--gray-100);
+}
+
+.simple-banner-block > * {
+    grid-area: banner;
+    position: relative;
+}
+
+.simple-banner-block img {
+    object-fit: cover;
+    object-position: var(--focus, center);
+    position: absolute;
+    height: 100%;
+}

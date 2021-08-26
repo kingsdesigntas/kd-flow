@@ -3,6 +3,7 @@ wp_enqueue_script('jquery');
 
 // Gutenberg custom stylesheet
 add_theme_support('editor-styles');
+add_editor_style('style.css');
 add_editor_style('editor-style.css');
 
 // Disable woocommerce stylesheets
