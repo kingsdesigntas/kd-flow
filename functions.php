@@ -3,6 +3,7 @@ wp_enqueue_script('jquery');
 
 // Gutenberg custom stylesheet
 add_theme_support('editor-styles');
+add_editor_style('style.css');
 add_editor_style('editor-style.css');
 
 // Disable woocommerce stylesheets
@@ -137,7 +138,3 @@ function tn_custom_excerpt_length($length)
     return 25;
 }
 add_filter('excerpt_length', 'tn_custom_excerpt_length', 999);
-
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', true);

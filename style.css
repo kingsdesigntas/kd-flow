@@ -468,6 +468,21 @@ End Header
     margin-top: var(--flow, 1.25rem);
 }
 
+.block-entry-content>* {
+    max-width: var(--width-medium);
+    width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block-entry-content>ul {
+    width: 80%;
+}
+
+.block-entry-content>ul>*+* {
+    margin-top: var(--flow, 1.25rem);
+}
+
 p > a {
     color: var(--primary-700);
     transition: color 0.3s;
