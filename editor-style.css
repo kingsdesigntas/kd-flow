@@ -114,7 +114,7 @@ Managing Content Flow
         margin-right: auto !important;
     }
 
-    .flow-space-sm {
+    /* .flow-space-sm {
         margin-top: (var(--spacing)) !important;
         margin-bottom: (var(--spacing)) !important;
     }
@@ -149,7 +149,7 @@ Managing Content Flow
 .flow-top-none {
     margin-top: 0!important;
     margin-bottom: 0!important;
-}
+} */
 
     /* Top of Page Blocks */
     [data-title="Simple Banner"]:first-child,

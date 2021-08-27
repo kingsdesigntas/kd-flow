@@ -551,6 +551,30 @@ End Areas
     margin-top: var(--flow, 2rem);
 }
 
+.flow-xs >*+* {
+    --flow: 0.5rem;
+}
+
+.flow-sm >*+* {
+--flow: 1rem;
+}
+
+.flow-md >*+* {
+    --flow: 1.5rem;
+}
+
+.flow-lg >*+* {
+    --flow: 2rem;
+}
+
+.flow-xl >*+* {
+    --flow: 2.5rem;
+}
+
+.flow-xxl >*+* {
+    --flow: 3rem;
+}
+
 .flow-space-sm {
     margin-top: (var(--spacing));
     margin-bottom: (var(--spacing));
