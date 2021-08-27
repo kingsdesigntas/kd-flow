@@ -139,8 +139,8 @@ End Reset
 
 @font-face {
     font-family: 'GeneralSans';
-    src: local('GeneralSans SemiBold'), local('GeneralSans-SemiBold'),
-        url('./fonts/GeneralSans-SemiBold.woff2') format('woff2');
+    src: local('GeneralSans Semibold'), local('GeneralSans-Semibold'),
+        url('./fonts/GeneralSans-Semibold.woff2') format('woff2');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
