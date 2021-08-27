@@ -1,31 +1,23 @@
-/* ------------------------------------------------- 
-9.0 Gutenberg Display Control
-------------------------------------------------- */
-    .is-root-container {
-        font-family: var(--body-font);
-    }
-
-    .is-root-container h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: var(--heading-font);
-    }
-
-    /* --------
+/* --------
 Set Block Widths
 -------- */
     .wp-block {
         max-width: var(--width-medium);
     }
 
-    [data-title="Quote"] {
+    /* Genesis Custom Blocks with alignsmall */
+    [data-title="Quote"], .alignsmall {
         max-width: var(--width-small);
         width: 90%;
     }
+    
+    /* Genesis Custom Blocks with alignlarge */
+    .alignlarge {
+        max-width: var(--width-large);
+        width: 90%;
+    }
 
+    /* Genesis Custom Blocks with alignwide */
     [data-title="User Card"],
     [data-title="Post Grid"],
     [data-title="Services Grid"],
@@ -37,11 +29,12 @@ Set Block Widths
         width: 90%;
     }
 
+    /* Genesis Custom Blocks with alignfull */
     [data-title="Simple Banner"],
     [data-title="Home Banner"],
     [data-title="Inner Content Section"],
     [data-title="Content & Image Split"],
-[data-title="Split Actions"] {
+[data-title="Split Actions"], .alignfull {
         max-width: 100%;
     }
 
@@ -96,67 +89,76 @@ End Notice about Title & mock header/footer
 -------- */
 
     /* --------
-Managing Content Flow
+Managing Content Flow to reflect the frontend
 -------- */
-    .is-root-container>p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin: 0 auto;
+
+    .wp-block {
+        margin-bottom: unset;
     }
 
     .is-root-container>*+* {
-        margin-top: 2rem !important;
+        margin-top: 2rem;
         margin-left: auto !important;
         margin-right: auto !important;
     }
 
-    /* .flow-space-sm {
-        margin-top: (var(--spacing)) !important;
-        margin-bottom: (var(--spacing)) !important;
+    .flow-space-sm {
+        margin-top: (var(--spacing));
+        margin-bottom: (var(--spacing));
     }
 
     .flow-space-lg {
-        margin-top: calc(var(--spacing) * 4) !important;
-        margin-bottom: calc(var(--spacing) * 4) !important;
+        margin-top: calc(var(--spacing) * 4);
+        margin-bottom: calc(var(--spacing) * 4);
     }
 
     .flow-space-xl {
-        margin-top: calc(var(--spacing) * 6) !important;
-        margin-bottom: calc(var(--spacing) * 6) !important;
+        margin-top: calc(var(--spacing) * 6);
+        margin-bottom: calc(var(--spacing) * 6);
     }
 
-.flow-space-none {
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-}
+    .flow-space-none {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 
     .flow-top-sm {
-        margin-top: (var(--spacing)) !important;
+        margin-top: (var(--spacing));
     }
 
     .flow-top-lg {
-        margin-top: calc(var(--spacing) * 4) !important;
+        margin-top: calc(var(--spacing) * 4);
     }
 
     .flow-top-xl {
-        margin-top: calc(var(--spacing) * 6) !important;
+        margin-top: calc(var(--spacing) * 6);
     }
 
-.flow-top-none {
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-} */
+    .flow-top-none {
+        margin-top: (var(--spacing));
+    }
+
+    .flow-bottom-sm {
+        margin-bottom: (var(--spacing));
+    }
+
+    .flow-bottom-lg {
+        margin-bottom: calc(var(--spacing) * 4);
+    }
+
+    .flow-bottom-xl {
+        margin-bottom: calc(var(--spacing) * 6);
+    }
+
+    .flow-bottom-none {
+        margin-bottom: (var(--spacing));
+    }
+
 
     /* Top of Page Blocks */
-    [data-title="Simple Banner"]:first-child,
-    [data-title="Home Banner"]:first-child,
-    [data-title="Inner Content Section"]:first-child {
+    [data-title="Simple Banner"]:first-child {
         margin-top: -4rem;
-    }p
+    }
 
     /* --------
 End Managing Content Flow
@@ -188,7 +190,3 @@ Fixes
     /* --------
 End Fixes
 -------- */
-
-    /* ------------------------------------------------- 
-End Gutenberg Display Control
-------------------------------------------------- */
