@@ -92,6 +92,10 @@ End Notice about Title & mock header/footer
 Managing Content Flow to reflect the frontend
 -------- */
 
+    .editor-styles-wrapper div .first-block-negative-margin {
+        margin-top: unset!important;
+    }
+
     .wp-block {
         margin-bottom: unset;
     }

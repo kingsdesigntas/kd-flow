@@ -783,7 +783,7 @@ End Buttons
 }
 
 /* Top of Page Blocks */
-.first-block-negative-margin:first-child {
+.entry-content .first-block-negative-margin:first-child {
     margin-top: -4rem;
 }
 
