@@ -193,6 +193,7 @@ End Font Imports
     --secondary-800: #063F4C;
     --secondary-900: #031F26;
     --spacing: 1rem;
+    --entry-top-space: 4rem;
     font-family: var(--body-font);
 }
 /* ------------------------------------------------- 
@@ -450,7 +451,7 @@ End Header
 5.2 Entry Content
 -------- */
 .entry-content {
-    padding: 4rem 0 6rem;
+    padding: var(--entry-top-space) 0 6rem;
 }
 
 .entry-content>* {
@@ -547,6 +548,11 @@ End Areas
 /* ------------------------------------------------- 
 6.0 Utilities
 ------------------------------------------------- */
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .flow>*+* {
     margin-top: var(--flow, 2rem);
 }
@@ -784,7 +790,7 @@ End Buttons
 
 /* Top of Page Blocks */
 .entry-content .first-block-negative-margin:first-child {
-    margin-top: -4rem;
+    margin-top: calc(-1 * var(--entry-top-space));
 }
 
 /* ------------------------------------------------- 

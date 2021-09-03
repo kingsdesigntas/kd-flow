@@ -161,7 +161,7 @@ Managing Content Flow to reflect the frontend
 
     /* Top of Page Blocks */
     [data-title="Simple Banner"]:first-child {
-        margin-top: -4rem;
+        margin-top: calc(-1 * var(--entry-top-space) );
     }
 
     /* --------
