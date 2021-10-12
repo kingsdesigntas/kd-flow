@@ -138,3 +138,7 @@ function tn_custom_excerpt_length($length)
     return 25;
 }
 add_filter('excerpt_length', 'tn_custom_excerpt_length', 999);
+
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', true);
